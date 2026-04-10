@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* =========================================
+   1. VARIÁVEIS GLOBAIS (Design System)
+   ========================================= */
+:root {
+    /* Paleta de Cores Minimalista */
+    --cor-fundo: #FAFAFA;
+    --cor-texto: #333333;
+    --cor-texto-suave: #666666;
+    --cor-primaria: #1A1A1A; /* Preto suave para forte contraste */
+    --cor-destaque: #2E8B57; /* Verde elegante para botões/links */
+    --cor-borda: #E0E0E0;
+
+    /* Tipografia */
+    --fonte-titulos: 'Playfair Display', serif;
+    /* Fonte do sistema (super rápida e moderna para textos) */
+    --fonte-textos: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    /* Layout */
+    --largura-maxima: 900px;
+}
+
+/* =========================================
+   2. RESET E BASE FLUIDA
+   ========================================= */
+*, *::before, *::after {
+    box-sizing: border-box; /* Garante que padding não quebre a largura */
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Rolagem suave ao clicar nos links do menu */
+}
+
+body {
+    font-family: var(--fonte-textos);
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased; /* Suaviza as fontes no Mac/iOS */
+}
+
+/* Container principal para centralizar e limitar a largura */
+main, header {
+    max-width: var(--largura-maxima);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 5rem 0; /* Espaço generoso entre as seções (Minimalismo) */
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+/* =========================================
+   3. TIPOGRAFIA
+   ========================================= */
+h1, h2, h3 {
+    font-family: var(--fonte-titulos);
+    color: var(--cor-primaria);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--cor-texto-suave);
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    color: var(--cor-texto-suave);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   4. CABEÇALHO E NAVEGAÇÃO (Flexbox)
+   ========================================= */
+header {
+    display: flex;
+    justify-content: space-between; /* Título de um lado, menu do outro */
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.tittle {
+    margin: 0; /* Remove a margem antiga */
+}
+
+/* Esconde o H2 no header visualmente, mas mantém para leitores de tela */
+header h2 {
+    display: none; 
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem; /* Espaçamento fluido entre os links */
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--cor-destaque);
+}
+
+/* =========================================
+   5. COMPONENTES: TABELA E FORMULÁRIO
+   ========================================= */
+
+/* --- Tabela Minimalista --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    background-color: #fff;
+    border-radius: 8px; /* Cantos levemente arredondados */
+    overflow: hidden; /* Necessário para o border-radius funcionar na tabela */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Sombra super sutil */
+}
+
+caption {
+    font-family: var(--fonte-titulos);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    color: var(--cor-texto-suave);
+}
+
+th, td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+th {
+    background-color: var(--cor-primaria);
+    color: #fff;
+    font-weight: 500;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* --- Formulário Elegante --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 600px; /* Formulário não precisa ocupar a tela toda */
+}
+
+.grupo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--cor-primaria);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    font-family: var(--fonte-textos);
+    font-size: 1rem;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1); /* Efeito de foco profissional */
+}
+
+/* --- Botão --- */
+button {
+    background-color: var(--cor-destaque);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    align-self: flex-start; /* Evita que o botão estique */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: #246B43; /* Verde um pouco mais escuro */
+}
+
+button:active {
+    transform: translateY(2px); /* Efeito de clique */
+}
+
+/* =========================================
+   6. IMAGENS E LISTAS
+   ========================================= */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 2rem 0;
+}
+
+#servicos ul {
+    list-style: none;
+}
+
+#servicos li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--cor-borda);
+    color: var(--cor-texto-suave);
+}
+
+#servicos li::before {
+    content: '✓'; /* Adiciona um checkmark minimalista */
+    color: var(--cor-destaque);
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* =========================================
+   7. RODAPÉ E RESPONSIVIDADE
+   ========================================= */
+footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--cor-texto-suave);
+    font-size: 0.9rem;
+}
+
+/* Media Query para Celulares */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column; /* Empilha logo e menu no celular */
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto; /* Permite scroll lateral na tabela em telas pequenas */
+        white-space: nowrap;
+    }
+}

@@ -1,0 +1,99 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: #2e2e2e;
+  line-height: 1.6;
+  padding: 40px;
+  background: #f8f9fa;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #0066cc;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #003366;
+  margin: 40px 0 16px;
+  border-left: 4px solid #0066cc;
+  padding-left: 12px;
+}
+
+h3 {
+  font-size: 1rem;
+  color: #0066cc;
+  margin: 24px 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+p {
+  margin-bottom: 12px;
+  max-width: 700px;
+}
+
+/* Caixa de exemplo visual */
+.exemplo {
+  background: #01fa22;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 24px;
+  margin: 16px 0 32px;
+}
+
+/* Caixas coloridas para demonstração */
+.caixa {
+  background: #0066cc;
+  color: white;
+  padding: 16px;
+  margin: 8px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.caixa-b {
+  background: #6c63ff;
+}
+
+.caixa-c {
+  background: #00b4d8;
+}
+
+/* Separador de seção */
+section {
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.caixa-flutuante {
+  background-color: blue;
+  color: rgb(255, 0, 234);
+  float: left;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 5px 10px 0 25px;
+  transition: all  0.3s ease;
+}
+
+.caixa-flutuante:hover {
+  background-color: rgb(255, 0, 234);
+  color: blue;
+  border-radius: 10px 5px 25px 0;
+  transform: scale(1.2);
+}
+
