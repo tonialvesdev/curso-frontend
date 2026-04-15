@@ -1,0 +1,42 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#grad1 {
+  background-image: linear-gradient(to top, rgb(155, 0, 0), rgb(129, 0, 133));
+  padding: 0.35rem 0;
+}
+
+.navbar-brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+}
+
+.navbar-toggler {
+  padding: 0.35rem 0.55rem;
+  border-width: 1px;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+
+  .navbar-nav {
+    gap: 0.25rem;
+  }
+
+  .nav-link {
+    text-align: center;
+  }
+}
