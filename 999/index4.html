@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="InovaWeb cria sites responsivos, design digital e estrategias para empresas que querem crescer online.">
+    <title>InovaWeb | Solu&ccedil;&otilde;es digitais profissionais</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --brand-primary: #7c9cff;
+            --brand-primary-dark: #5578ee;
+            --brand-accent: #35d0ba;
+            --brand-warm: #f5b971;
+            --ink: #f7f9ff;
+            --muted: #aeb8ca;
+            --surface: #141a27;
+            --surface-soft: #0d111a;
+            --surface-raised: #1b2333;
+            --line: rgba(255, 255, 255, 0.12);
+            --shadow: 0 22px 70px rgba(0, 0, 0, 0.38);
+            --radius: 0.75rem;
+            --bs-primary: var(--brand-primary);
+            --bs-primary-rgb: 124, 156, 255;
+            --bs-body-bg: var(--surface-soft);
+            --bs-body-color: var(--ink);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at 15% 8%, rgba(124, 156, 255, 0.2), transparent 30rem),
+                radial-gradient(circle at 86% 22%, rgba(53, 208, 186, 0.14), transparent 28rem),
+                var(--surface-soft);
+            color: var(--ink);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .site-navbar {
+            background: rgba(13, 17, 26, 0.88);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(14px);
+        }
+
+        .navbar-brand {
+            color: var(--ink);
+            letter-spacing: 0;
+        }
+
+        .navbar-brand i,
+        .section-kicker {
+            color: var(--brand-accent);
+        }
+
+        .navbar-brand:hover,
+        .navbar-brand:focus,
+        .nav-link:hover,
+        .nav-link:focus,
+        .nav-link.active {
+            color: var(--brand-primary) !important;
+        }
+
+        .nav-link {
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .navbar-toggler {
+            border-color: var(--line);
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.2rem rgba(124, 156, 255, 0.24);
+        }
+
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            padding: clamp(4rem, 9vw, 7rem) 0;
+            background:
+                linear-gradient(135deg, rgba(124, 156, 255, 0.12), rgba(53, 208, 186, 0.06)),
+                rgba(13, 17, 26, 0.32);
+        }
+
+        .hero-section::after {
+            position: absolute;
+            inset: auto 8% 0;
+            height: 1px;
+            content: "";
+            background: linear-gradient(90deg, transparent, rgba(124, 156, 255, 0.65), transparent);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.85rem;
+            border: 1px solid rgba(124, 156, 255, 0.28);
+            border-radius: 999px;
+            background: rgba(20, 26, 39, 0.72);
+            color: var(--brand-primary);
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .hero-title {
+            max-width: 780px;
+            margin-inline: auto;
+            color: var(--ink);
+            font-size: clamp(2.25rem, 6vw, 4.6rem);
+            line-height: 1.02;
+        }
+
+        .hero-copy {
+            max-width: 680px;
+            margin-inline: auto;
+            color: var(--muted) !important;
+        }
+
+        .btn-primary {
+            --bs-btn-color: #08111f;
+            --bs-btn-bg: var(--brand-primary);
+            --bs-btn-border-color: var(--brand-primary);
+            --bs-btn-hover-color: #07101d;
+            --bs-btn-hover-bg: #a4b8ff;
+            --bs-btn-hover-border-color: #a4b8ff;
+            --bs-btn-focus-shadow-rgb: 124, 156, 255;
+            font-weight: 800;
+        }
+
+        .btn-outline-primary {
+            --bs-btn-color: var(--brand-primary);
+            --bs-btn-border-color: rgba(124, 156, 255, 0.5);
+            --bs-btn-hover-color: #08111f;
+            --bs-btn-hover-bg: var(--brand-primary);
+            --bs-btn-hover-border-color: var(--brand-primary);
+            font-weight: 800;
+        }
+
+        .btn-outline-light {
+            font-weight: 700;
+        }
+
+        .section-kicker {
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .section-title,
+        .service-card .card-title,
+        .service-card .card-text {
+            color: var(--ink);
+        }
+
+        .text-muted,
+        .showcase-caption {
+            color: var(--muted) !important;
+        }
+
+        .showcase-section {
+            padding: 4rem 0 2rem;
+            background: rgba(13, 17, 26, 0.64);
+        }
+
+        .showcase-card {
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(20, 26, 39, 0.9);
+            box-shadow: var(--shadow);
+        }
+
+        .showcase-media {
+            display: grid;
+            min-height: 320px;
+            place-items: center;
+            background:
+                radial-gradient(circle, rgba(53, 208, 186, 0.2), transparent 62%),
+                linear-gradient(145deg, #192238, #111827);
+        }
+
+        .showcase-image {
+            width: min(78%, 420px);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 1rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.36);
+        }
+
+        .showcase-content {
+            padding: clamp(1.5rem, 4vw, 3rem);
+        }
+
+        .stat-box {
+            padding: 1rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .slides-section {
+            background:
+                linear-gradient(180deg, rgba(13, 17, 26, 0.2), rgba(20, 26, 39, 0.78)),
+                transparent;
+        }
+
+        .project-carousel {
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(20, 26, 39, 0.88);
+            box-shadow: var(--shadow);
+        }
+
+        .project-slide {
+            min-height: 430px;
+            padding: clamp(1.5rem, 4vw, 3rem);
+            background:
+                radial-gradient(circle at 85% 18%, rgba(53, 208, 186, 0.22), transparent 18rem),
+                radial-gradient(circle at 8% 86%, rgba(124, 156, 255, 0.22), transparent 20rem),
+                linear-gradient(135deg, rgba(27, 35, 51, 0.98), rgba(13, 17, 26, 0.98));
+        }
+
+        .slide-visual {
+            display: grid;
+            min-height: 260px;
+            place-items: center;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .slide-visual i {
+            color: var(--brand-accent);
+            font-size: clamp(4rem, 10vw, 7rem);
+        }
+
+        .slide-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 0.75rem;
+            border: 1px solid rgba(53, 208, 186, 0.3);
+            border-radius: 999px;
+            color: var(--brand-accent);
+            font-size: 0.82rem;
+            font-weight: 800;
+        }
+
+        .slide-metric {
+            padding: 0.9rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .carousel-indicators {
+            position: static;
+            margin: 1rem 0 0;
+        }
+
+        .carousel-indicators [data-bs-target] {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background-color: var(--brand-primary);
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 3.5rem;
+        }
+
+        .services-section {
+            background: transparent;
+        }
+
+        .service-card {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: linear-gradient(180deg, rgba(27, 35, 51, 0.98), rgba(20, 26, 39, 0.98));
+            box-shadow: 0 12px 34px rgba(0, 0, 0, 0.25);
+            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(124, 156, 255, 0.55);
+            box-shadow: var(--shadow);
+        }
+
+        .featured-card {
+            border-color: rgba(53, 208, 186, 0.58);
+        }
+
+        .service-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3.25rem;
+            height: 3.25rem;
+            border: 1px solid rgba(124, 156, 255, 0.28);
+            border-radius: var(--radius);
+            background: rgba(124, 156, 255, 0.12);
+            color: var(--brand-primary);
+            font-size: 1.35rem;
+        }
+
+        .modal-options {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .modal-option {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--ink);
+            font: inherit;
+        }
+
+        .modal-option:hover,
+        .modal-option:focus {
+            border-color: rgba(124, 156, 255, 0.48);
+            background: rgba(124, 156, 255, 0.08);
+        }
+
+        .modal-option i {
+            color: var(--brand-accent);
+            font-size: 1.2rem;
+        }
+
+        .pricing-section {
+            background: rgba(20, 26, 39, 0.72);
+        }
+
+        .pricing-table-wrap {
+            width: min(100%, 920px);
+        }
+
+        .pricing-table {
+            overflow: hidden;
+            margin-bottom: 0;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            color: var(--ink);
+            box-shadow: 0 12px 34px rgba(0, 0, 0, 0.25);
+        }
+
+        .pricing-table caption {
+            caption-side: top;
+            padding-bottom: 1rem;
+            color: var(--muted);
+            text-align: left;
+        }
+
+        .pricing-table > :not(caption) > * > * {
+            padding: 1rem;
+            border-color: var(--line);
+            background-color: rgba(20, 26, 39, 0.94);
+            color: var(--ink);
+        }
+
+        .pricing-table thead th {
+            background-color: rgba(124, 156, 255, 0.14);
+            color: var(--brand-primary);
+        }
+
+        .pricing-table tbody tr:hover > * {
+            background-color: rgba(124, 156, 255, 0.08);
+        }
+
+        .modal-content {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: #151c2b;
+            box-shadow: var(--shadow);
+        }
+
+        .modal-header,
+        .modal-footer {
+            border-color: var(--line);
+        }
+
+        .form-control,
+        .form-select {
+            border-color: var(--line);
+            background-color: #0f1522;
+            color: var(--ink);
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--brand-primary);
+            box-shadow: 0 0 0 0.2rem rgba(124, 156, 255, 0.2);
+        }
+
+        .site-footer {
+            background: #0a0e16;
+            color: #e5e7eb;
+            border-top: 1px solid var(--line);
+        }
+
+        .site-footer p,
+        .site-footer a {
+            color: #e5e7eb !important;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                margin-top: 0.75rem;
+                padding: 0.75rem;
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                background: #101624;
+            }
+
+            .nav-link {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .hero-section {
+                padding-top: 3.5rem;
+            }
+
+            .hero-actions {
+                display: grid;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+            }
+
+            .showcase-media {
+                min-height: 230px;
+            }
+
+            .project-slide {
+                min-height: auto;
+                padding-bottom: 4rem;
+            }
+
+            .carousel-control-prev,
+            .carousel-control-next {
+                align-items: end;
+                width: 4rem;
+                padding-bottom: 0.8rem;
+            }
+
+            .pricing-table > :not(caption) > * > * {
+                padding: 0.8rem;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg site-navbar" aria-label="Navega&ccedil;&atilde;o principal">
+            <div class="container">
+                <a class="navbar-brand d-inline-flex align-items-center gap-2 fw-bold" href="#home">
+                    <i class="bi bi-lightning-charge-fill" aria-hidden="true"></i>
+                    <span>InovaWeb</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarInovaWeb"
+                    aria-controls="navbarInovaWeb" aria-expanded="false" aria-label="Alternar navega&ccedil;&atilde;o">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarInovaWeb">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#servicos">Servi&ccedil;os</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#cases">Cases</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#precos">Planos</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-primary btn-sm ms-lg-2 px-3" type="button" data-bs-toggle="modal"
+                                data-bs-target="#modalContato">
+                                Contato
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section text-center">
+            <div class="container">
+                <span class="hero-badge mb-4">
+                    <i class="bi bi-stars" aria-hidden="true"></i>
+                    Design, tecnologia e estrat&eacute;gia
+                </span>
+                <h1 class="hero-title fw-bold mb-4">Transformamos ideias em experi&ecirc;ncias digitais memor&aacute;veis</h1>
+                <p class="lead hero-copy mb-4">
+                    Criamos sites responsivos, identidades visuais e solu&ccedil;&otilde;es digitais para marcas que
+                    precisam de presen&ccedil;a online clara, moderna e orientada a resultados.
+                </p>
+                <div class="hero-actions d-flex flex-column flex-sm-row justify-content-center gap-3">
+                    <a href="#servicos" class="btn btn-primary btn-lg px-4">Conhe&ccedil;a os servi&ccedil;os</a>
+                    <button class="btn btn-outline-primary btn-lg px-4" type="button" data-bs-toggle="modal"
+                        data-bs-target="#modalOrcamento">
+                        Solicitar or&ccedil;amento
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="showcase-section" aria-labelledby="destaque-titulo">
+            <div class="container">
+                <div class="showcase-card">
+                    <div class="row g-0 align-items-stretch">
+                        <div class="col-lg-6 showcase-media">
+                            <figure class="m-0 text-center">
+                                <img src="img/Doguinho.png" class="showcase-image" alt="Mascote digital da InovaWeb">
+                                <figcaption class="showcase-caption mt-3">Mascote visual para campanhas digitais
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="col-lg-6 d-flex align-items-center">
+                            <div class="showcase-content">
+                                <p class="section-kicker mb-2">Projeto em destaque</p>
+                                <h2 id="destaque-titulo" class="section-title fw-bold mb-3">Comunica&ccedil;&atilde;o
+                                    visual com personalidade</h2>
+                                <p class="text-muted mb-4">
+                                    Unimos conte&uacute;do, imagem e interface para construir experi&ecirc;ncias digitais
+                                    agrad&aacute;veis em celulares, tablets e computadores.
+                                </p>
+                                <div class="row g-3" aria-label="Diferenciais do projeto">
+                                    <div class="col-sm-6">
+                                        <div class="stat-box">
+                                            <strong class="d-block">100%</strong>
+                                            <span class="text-muted">Layout responsivo</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="stat-box">
+                                            <strong class="d-block">SEO</strong>
+                                            <span class="text-muted">Estrutura sem&acirc;ntica</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline-light mt-4" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#modalProcesso">
+                                    Ver processo criativo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cases" class="slides-section py-5" aria-labelledby="cases-titulo">
+            <div class="container py-lg-4">
+                <div class="row justify-content-center text-center mb-5">
+                    <div class="col-lg-8">
+                        <p class="section-kicker mb-2">Vitrine de projetos</p>
+                        <h2 id="cases-titulo" class="section-title fw-bold">Slides de solu&ccedil;&otilde;es digitais</h2>
+                        <p class="text-muted mb-0">
+                            Alguns exemplos de como a InovaWeb pode transformar presen&ccedil;a digital em experi&ecirc;ncia,
+                            clareza e resultado.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="carouselProjetos" class="carousel slide project-carousel" data-bs-ride="carousel"
+                    aria-label="Slides de solu&ccedil;&otilde;es digitais">
+                    <div class="carousel-inner">
+                        <article class="carousel-item active">
+                            <div class="project-slide">
+                                <div class="row g-4 align-items-center">
+                                    <div class="col-lg-6">
+                                        <span class="slide-tag mb-3">
+                                            <i class="bi bi-window" aria-hidden="true"></i>
+                                            Site institucional
+                                        </span>
+                                        <h3 class="display-6 fw-bold mb-3">Uma primeira impress&atilde;o mais forte</h3>
+                                        <p class="text-muted mb-4">
+                                            Estrutura moderna para empresas que precisam explicar servi&ccedil;os, gerar
+                                            confian&ccedil;a e facilitar o contato com clientes.
+                                        </p>
+                                        <div class="row g-3">
+                                            <div class="col-sm-6">
+                                                <div class="slide-metric">
+                                                    <strong class="d-block">Mobile first</strong>
+                                                    <span class="text-muted">Navega&ccedil;&atilde;o fluida</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="slide-metric">
+                                                    <strong class="d-block">SEO b&aacute;sico</strong>
+                                                    <span class="text-muted">HTML sem&acirc;ntico</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="slide-visual" aria-hidden="true">
+                                            <i class="bi bi-laptop"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="carousel-item">
+                            <div class="project-slide">
+                                <div class="row g-4 align-items-center">
+                                    <div class="col-lg-6">
+                                        <span class="slide-tag mb-3">
+                                            <i class="bi bi-stars" aria-hidden="true"></i>
+                                            Campanha visual
+                                        </span>
+                                        <h3 class="display-6 fw-bold mb-3">Identidade consistente em todos os canais</h3>
+                                        <p class="text-muted mb-4">
+                                            Pe&ccedil;as digitais com paleta, hierarquia e linguagem visual pensadas para
+                                            redes sociais, banners e apresenta&ccedil;&otilde;es.
+                                        </p>
+                                        <div class="row g-3">
+                                            <div class="col-sm-6">
+                                                <div class="slide-metric">
+                                                    <strong class="d-block">Kit visual</strong>
+                                                    <span class="text-muted">Cores e componentes</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="slide-metric">
+                                                    <strong class="d-block">IA criativa</strong>
+                                                    <span class="text-muted">Varia&ccedil;&otilde;es r&aacute;pidas</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="slide-visual" aria-hidden="true">
+                                            <i class="bi bi-palette2"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="carousel-item">
+                            <div class="project-slide">
+                                <div class="row g-4 align-items-center">
+                                    <div class="col-lg-6">
+                                        <span class="slide-tag mb-3">
+                                            <i class="bi bi-graph-up-arrow" aria-hidden="true"></i>
+                                            Estrat&eacute;gia digital
+                                        </span>
+                                        <h3 class="display-6 fw-bold mb-3">Decis&otilde;es com mais foco e menos ru&iacute;do</h3>
+                                        <p class="text-muted mb-4">
+                                            Diagn&oacute;stico, prioriza&ccedil;&atilde;o e plano de a&ccedil;&atilde;o para melhorar a
+                                            presen&ccedil;a online sem desperdi&ccedil;ar energia.
+                                        </p>
+                                        <div class="row g-3">
+                                            <div class="col-sm-6">
+                                                <div class="slide-metric">
+                                                    <strong class="d-block">Mapa de a&ccedil;&atilde;o</strong>
+                                                    <span class="text-muted">Pr&oacute;ximos passos</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="slide-metric">
+                                                    <strong class="d-block">M&eacute;tricas</strong>
+                                                    <span class="text-muted">Acompanhamento claro</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="slide-visual" aria-hidden="true">
+                                            <i class="bi bi-bar-chart-line"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselProjetos"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Slide anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselProjetos"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Pr&oacute;ximo slide</span>
+                    </button>
+
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselProjetos" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselProjetos" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselProjetos" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="services-section py-5" aria-labelledby="servicos-titulo">
+            <div class="container py-lg-4">
+                <div class="text-center mb-5">
+                    <p class="section-kicker mb-2">O que fazemos</p>
+                    <h2 id="servicos-titulo" class="fw-bold section-title">Nossos Servi&ccedil;os</h2>
+                    <p class="text-muted mb-0">Solu&ccedil;&otilde;es pensadas para destacar sua empresa no mercado digital.</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="service-card card h-100">
+                            <div class="card-body d-flex flex-column p-4">
+                                <i class="bi bi-code-slash service-icon mb-3" aria-hidden="true"></i>
+                                <h3 class="h5 card-title fw-bold">Desenvolvimento Web</h3>
+                                <p class="card-text text-muted flex-grow-1">
+                                    Sites modernos, r&aacute;pidos e responsivos para apresentar sua empresa com credibilidade.
+                                </p>
+                                <button class="btn btn-primary mt-3" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#modalWeb">
+                                    Saiba mais
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="service-card card h-100 featured-card">
+                            <div class="card-body d-flex flex-column p-4">
+                                <div class="mb-3">
+                                    <span class="badge text-bg-warning">Popular</span>
+                                </div>
+                                <i class="bi bi-palette2 service-icon mb-3" aria-hidden="true"></i>
+                                <h3 class="h5 card-title fw-bold">Design com IA</h3>
+                                <p class="card-text text-muted flex-grow-1">
+                                    Layouts, imagens e pe&ccedil;as digitais criadas com dire&ccedil;&atilde;o visual profissional.
+                                </p>
+                                <button class="btn btn-primary mt-3" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#modalDesign">
+                                    Saiba mais
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="service-card card h-100">
+                            <div class="card-body d-flex flex-column p-4">
+                                <i class="bi bi-graph-up-arrow service-icon mb-3" aria-hidden="true"></i>
+                                <h3 class="h5 card-title fw-bold">Consultoria Digital</h3>
+                                <p class="card-text text-muted flex-grow-1">
+                                    Estrat&eacute;gias de presen&ccedil;a digital para melhorar posicionamento, alcance e convers&atilde;o.
+                                </p>
+                                <button class="btn btn-primary mt-3" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#modalConsultoria">
+                                    Saiba mais
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="precos" class="pricing-section py-5" aria-labelledby="precos-titulo">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="mb-4">
+                            <p class="section-kicker mb-2">Investimento</p>
+                            <h2 id="precos-titulo" class="fw-bold section-title">Planos iniciais</h2>
+                            <p class="text-muted mb-0">
+                                Valores de refer&ecirc;ncia para come&ccedil;ar um projeto digital com escopo claro.
+                            </p>
+                        </div>
+
+                        <div class="table-responsive pricing-table-wrap">
+                            <table class="table pricing-table align-middle">
+                                <caption>Comparativo de servi&ccedil;os, prazos e valores estimados.</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Servi&ccedil;o</th>
+                                        <th scope="col">Prazo</th>
+                                        <th scope="col">Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Site institucional</th>
+                                        <td>7 dias</td>
+                                        <td>R$ 1.500</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Identidade visual digital</th>
+                                        <td>3 dias</td>
+                                        <td>R$ 1.500</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Consultoria estrat&eacute;gica</th>
+                                        <td>10 dias</td>
+                                        <td>R$ 1.500</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <button class="btn btn-outline-primary mt-4" type="button" data-bs-toggle="modal"
+                            data-bs-target="#modalOrcamento">
+                            Comparar e pedir proposta
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contato" class="site-footer py-4">
+        <div class="container">
+            <div class="row gy-3 align-items-center">
+                <div class="col-md">
+                    <p class="mb-1 fw-bold">InovaWeb</p>
+                    <p class="mb-0 small">&copy; 2026 InovaWeb. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-auto d-flex flex-column flex-sm-row gap-2">
+                    <button class="btn btn-outline-light" type="button" data-bs-toggle="modal"
+                        data-bs-target="#modalContato">
+                        <i class="bi bi-chat-dots" aria-hidden="true"></i>
+                        Fale conosco
+                    </button>
+                    <a class="btn btn-primary" href="mailto:contato@inovaweb.com.br">
+                        <i class="bi bi-envelope" aria-hidden="true"></i>
+                        contato@inovaweb.com.br
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="modalWeb" tabindex="-1" aria-labelledby="modalWebTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title h5" id="modalWebTitulo">Desenvolvimento Web</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted">
+                        Ideal para empresas que precisam de um site institucional bonito, leve e preparado para celulares.
+                    </p>
+                    <div class="modal-options">
+                        <div class="modal-option">
+                            <i class="bi bi-phone" aria-hidden="true"></i>
+                            <div>
+                                <strong>Responsivo</strong>
+                                <p class="text-muted mb-0">Layout adaptado para mobile, tablet e desktop.</p>
+                            </div>
+                        </div>
+                        <div class="modal-option">
+                            <i class="bi bi-speedometer2" aria-hidden="true"></i>
+                            <div>
+                                <strong>Performance</strong>
+                                <p class="text-muted mb-0">P&aacute;ginas organizadas para carregar com agilidade.</p>
+                            </div>
+                        </div>
+                        <div class="modal-option">
+                            <i class="bi bi-search" aria-hidden="true"></i>
+                            <div>
+                                <strong>SEO b&aacute;sico</strong>
+                                <p class="text-muted mb-0">Estrutura sem&acirc;ntica para melhorar leitura e indexa&ccedil;&atilde;o.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" data-bs-target="#modalOrcamento" data-bs-toggle="modal">
+                        Pedir proposta
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalDesign" tabindex="-1" aria-labelledby="modalDesignTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title h5" id="modalDesignTitulo">Design com IA</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted">
+                        Uma op&ccedil;&atilde;o para criar imagens, conceitos visuais e varia&ccedil;&otilde;es de layout com mais velocidade.
+                    </p>
+                    <div class="modal-options">
+                        <div class="modal-option">
+                            <i class="bi bi-magic" aria-hidden="true"></i>
+                            <div>
+                                <strong>Conceitos visuais</strong>
+                                <p class="text-muted mb-0">Explora&ccedil;&atilde;o de estilos, cores e composi&ccedil;&otilde;es.</p>
+                            </div>
+                        </div>
+                        <div class="modal-option">
+                            <i class="bi bi-images" aria-hidden="true"></i>
+                            <div>
+                                <strong>Pe&ccedil;as digitais</strong>
+                                <p class="text-muted mb-0">Materiais para redes sociais, banners e apresenta&ccedil;&otilde;es.</p>
+                            </div>
+                        </div>
+                        <div class="modal-option">
+                            <i class="bi bi-brush" aria-hidden="true"></i>
+                            <div>
+                                <strong>Dire&ccedil;&atilde;o criativa</strong>
+                                <p class="text-muted mb-0">Curadoria para manter a comunica&ccedil;&atilde;o consistente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" data-bs-target="#modalOrcamento" data-bs-toggle="modal">
+                        Pedir proposta
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalConsultoria" tabindex="-1" aria-labelledby="modalConsultoriaTitulo"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title h5" id="modalConsultoriaTitulo">Consultoria Digital</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted">
+                        Para quem quer organizar prioridades, melhorar presen&ccedil;a online e tomar decis&otilde;es com mais clareza.
+                    </p>
+                    <div class="modal-options">
+                        <div class="modal-option">
+                            <i class="bi bi-compass" aria-hidden="true"></i>
+                            <div>
+                                <strong>Diagn&oacute;stico</strong>
+                                <p class="text-muted mb-0">An&aacute;lise do momento atual da marca no digital.</p>
+                            </div>
+                        </div>
+                        <div class="modal-option">
+                            <i class="bi bi-list-check" aria-hidden="true"></i>
+                            <div>
+                                <strong>Plano de a&ccedil;&atilde;o</strong>
+                                <p class="text-muted mb-0">Pr&oacute;ximos passos claros por impacto e dificuldade.</p>
+                            </div>
+                        </div>
+                        <div class="modal-option">
+                            <i class="bi bi-bar-chart" aria-hidden="true"></i>
+                            <div>
+                                <strong>M&eacute;tricas</strong>
+                                <p class="text-muted mb-0">Indicadores para acompanhar resultados reais.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" data-bs-target="#modalOrcamento" data-bs-toggle="modal">
+                        Pedir proposta
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProcesso" tabindex="-1" aria-labelledby="modalProcessoTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title h5" id="modalProcessoTitulo">Processo criativo</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="modal-option h-100">
+                                <i class="bi bi-1-circle" aria-hidden="true"></i>
+                                <div>
+                                    <strong>Briefing</strong>
+                                    <p class="text-muted mb-0">Entendemos marca, p&uacute;blico e objetivo do projeto.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="modal-option h-100">
+                                <i class="bi bi-2-circle" aria-hidden="true"></i>
+                                <div>
+                                    <strong>Prot&oacute;tipo</strong>
+                                    <p class="text-muted mb-0">Criamos a dire&ccedil;&atilde;o visual e validamos a experi&ecirc;ncia.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="modal-option h-100">
+                                <i class="bi bi-3-circle" aria-hidden="true"></i>
+                                <div>
+                                    <strong>Entrega</strong>
+                                    <p class="text-muted mb-0">Finalizamos com ajustes, responsividade e acabamento.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" data-bs-target="#modalOrcamento" data-bs-toggle="modal">
+                        Come&ccedil;ar projeto
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalOrcamento" tabindex="-1" aria-labelledby="modalOrcamentoTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <form class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title h5" id="modalOrcamentoTitulo">Solicitar or&ccedil;amento</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label" for="nome">Nome</label>
+                        <input class="form-control" id="nome" name="nome" type="text" placeholder="Seu nome" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="email">E-mail</label>
+                        <input class="form-control" id="email" name="email" type="email" placeholder="voce@email.com"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="servico">Servi&ccedil;o de interesse</label>
+                        <select class="form-select" id="servico" name="servico" required>
+                            <option value="">Selecione uma op&ccedil;&atilde;o</option>
+                            <option>Desenvolvimento Web</option>
+                            <option>Design com IA</option>
+                            <option>Consultoria Digital</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label" for="mensagem">Mensagem</label>
+                        <textarea class="form-control" id="mensagem" name="mensagem" rows="3"
+                            placeholder="Conte rapidamente sobre o projeto"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Enviar pedido</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalContato" tabindex="-1" aria-labelledby="modalContatoTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title h5" id="modalContatoTitulo">Canais de contato</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-options">
+                        <a class="modal-option text-decoration-none text-reset" href="mailto:contato@inovaweb.com.br">
+                            <i class="bi bi-envelope" aria-hidden="true"></i>
+                            <div>
+                                <strong>E-mail</strong>
+                                <p class="text-muted mb-0">contato@inovaweb.com.br</p>
+                            </div>
+                        </a>
+                        <a class="modal-option text-decoration-none text-reset" href="tel:+5521999999999">
+                            <i class="bi bi-telephone" aria-hidden="true"></i>
+                            <div>
+                                <strong>Telefone</strong>
+                                <p class="text-muted mb-0">(21) 99999-9999</p>
+                            </div>
+                        </a>
+                        <button class="modal-option text-start text-reset" type="button" data-bs-target="#modalOrcamento"
+                            data-bs-toggle="modal">
+                            <i class="bi bi-file-earmark-text" aria-hidden="true"></i>
+                            <span>
+                                <strong class="d-block">Or&ccedil;amento</strong>
+                                <span class="text-muted">Abra o formul&aacute;rio r&aacute;pido de proposta.</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
