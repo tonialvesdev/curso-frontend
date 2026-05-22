@@ -2,6 +2,7 @@ import './App.css'
 // import Exemplo from './components/Exemplo'
 import Cartaoperfil from './components/CartaoPerfil'
 import Coragem from '../coragem.png'
+import funcionarios from './data/funcionarios'
 
 function App() {
   return (
@@ -17,10 +18,16 @@ function App() {
       </header>
       <h1>Nossa Equipe</h1>
       <div className="grade">
-    <Cartaoperfil/>
-    <Cartaoperfil/>
-    <Cartaoperfil/>
-    <Cartaoperfil/>
+        {funcionarios.map(funcionarios => (
+          <Cartaoperfil
+            key={funcionarios.nome}
+            imagem={funcionarios.imagem}
+            nome={funcionarios.nome}
+            cargo={funcionarios.cargo}
+            bio={funcionarios.bio}
+            habilidades={funcionarios.habilidades}
+          />
+        ))}
       </div>
     </div>
   )
