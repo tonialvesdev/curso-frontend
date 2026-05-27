@@ -1,0 +1,113 @@
+/* App.css */
+.app {
+  min-height: 100vh;
+  background: #f0f4ff;
+  padding: 40px 20px;
+  font-family: sans-serif;
+}
+
+.app h1 {
+  text-align: center;
+  color: #004a99;
+  margin-bottom: 32px;
+}
+
+.grade {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.form-contato,
+.contato-sucesso {
+  width: min(100%, 520px);
+  margin: 0 auto;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #d8e2f3;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 74, 153, 0.12);
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.form-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-contato label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #12365f;
+  font-weight: 600;
+}
+
+.form-contato input,
+.form-contato select,
+.form-contato textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #b9c9de;
+  border-radius: 6px;
+  font: inherit;
+  color: #1e293b;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.form-contato textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-contato input:focus,
+.form-contato select:focus,
+.form-contato textarea:focus {
+  outline: 2px solid #66a6ff;
+  border-color: #004a99;
+}
+
+.form-contato p {
+  color: #5f7086;
+  font-size: 14px;
+  text-align: right;
+}
+
+.form-contato button,
+.contato-sucesso button {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 6px;
+  background: #004a99;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.form-contato button[type="button"] {
+  background: #6b7280;
+}
+
+.form-contato button:hover,
+.contato-sucesso button:hover {
+  filter: brightness(1.08);
+}
+
+.contato-sucesso {
+  text-align: center;
+}
+
+.contato-sucesso h2 {
+  color: #004a99;
+  margin-bottom: 12px;
+}
+
+.contato-sucesso p {
+  margin-bottom: 20px;
+  color: #334155;
+}
