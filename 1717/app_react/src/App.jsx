@@ -1,10 +1,11 @@
 import './App.css'
 // import Exemplo from './components/Exemplo'
-import Cartaoperfil from './components/CartaoPerfil'
+//port Cartaoperfil from './components/CartaoPerfil'
 import Coragem from '../coragem.png'
-import funcionarios from './data/funcionarios'
+//port funcionarios from './data/funcionarios'
 //import Contador from './components/ExemploUseState.jsx'
 import FormContato from './components/FormContato'
+import SecaoEquipe from './components/SecaoEquipe'
 
 function App() {
   return (
@@ -19,18 +20,8 @@ function App() {
         />
       </header>
       <h1>Nossa Equipe</h1>
-      <div className="grade">
-        {funcionarios.map(funcionarios => (
-          <Cartaoperfil
-            key={funcionarios.nome}
-            imagem={funcionarios.imagem}
-            nome={funcionarios.nome}
-            cargo={funcionarios.cargo}
-            bio={funcionarios.bio}
-            habilidades={funcionarios.habilidades}
-          />
-        ))}
-      </div>
+      <SecaoEquipe />
+      
       {/* <Contador/> */}
       <h1>Contato</h1>
       <FormContato />

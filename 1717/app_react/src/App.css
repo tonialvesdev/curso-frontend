@@ -1,101 +1,144 @@
-/* App.css */
 .app {
+  width: min(1180px, calc(100% - 32px));
   min-height: 100vh;
-  background: #f0f4ff;
-  padding: 40px 20px;
-  font-family: sans-serif;
+  margin: 0 auto;
+  padding: 32px 0 56px;
+}
+
+.app header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.app header img {
+  width: 132px;
+  height: 132px;
+  padding: 12px;
+  border: 1px solid rgba(216, 226, 234, 0.9);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow-soft);
+  object-fit: contain;
 }
 
 .app h1 {
+  margin: 44px 0 22px;
+  color: var(--text);
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
   text-align: center;
-  color: #004a99;
-  margin-bottom: 32px;
+  letter-spacing: 0;
+}
+
+.app h1:first-of-type {
+  margin-top: 12px;
 }
 
 .grade {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  align-items: stretch;
 }
 
-.form-contato,
-.contato-sucesso {
-  width: min(100%, 520px);
-  margin: 0 auto;
-  padding: 24px;
-  background: #ffffff;
-  border: 1px solid #d8e2f3;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 74, 153, 0.12);
-  box-sizing: border-box;
-  text-align: left;
-}
-
-.form-contato {
+.filtro {
+  width: min(100%, 460px);
+  margin: 0 auto 28px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 }
 
+.filtro label,
 .form-contato label {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  color: #12365f;
-  font-weight: 600;
+  color: #26384d;
+  font-size: 0.92rem;
+  font-weight: 750;
 }
 
+.filtro input,
 .form-contato input,
 .form-contato select,
 .form-contato textarea {
   width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #b9c9de;
-  border-radius: 6px;
-  font: inherit;
-  color: #1e293b;
-  background: #ffffff;
-  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease, background 150ms ease;
 }
 
-.form-contato textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
+.filtro input:focus,
 .form-contato input:focus,
 .form-contato select:focus,
 .form-contato textarea:focus {
-  outline: 2px solid #66a6ff;
-  border-color: #004a99;
+  border-color: var(--primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(15, 107, 110, 0.14);
+}
+
+.form-contato,
+.contato-sucesso {
+  width: min(100%, 620px);
+  margin: 0 auto;
+  padding: 28px;
+  border: 1px solid rgba(216, 226, 234, 0.95);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.form-contato {
+  display: grid;
+  gap: 16px;
+}
+
+.form-contato label {
+  display: grid;
+  gap: 7px;
+}
+
+.form-contato textarea {
+  min-height: 130px;
+  resize: vertical;
 }
 
 .form-contato p {
-  color: #5f7086;
-  font-size: 14px;
+  color: var(--muted);
+  font-size: 0.82rem;
   text-align: right;
 }
 
 .form-contato button,
 .contato-sucesso button {
-  padding: 10px 16px;
-  border: 0;
-  border-radius: 6px;
-  background: #004a99;
+  min-height: 44px;
+  padding: 11px 16px;
+  border-radius: var(--radius);
+  background: var(--primary);
   color: #ffffff;
-  font: inherit;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
+  transition: background 150ms ease, transform 150ms ease, box-shadow 150ms ease;
 }
 
 .form-contato button[type="button"] {
-  background: #6b7280;
+  background: #64748b;
 }
 
 .form-contato button:hover,
 .contato-sucesso button:hover {
-  filter: brightness(1.08);
+  background: var(--primary-dark);
+  box-shadow: 0 10px 24px rgba(15, 107, 110, 0.22);
+  transform: translateY(-1px);
+}
+
+.form-contato button[type="button"]:hover {
+  background: #475569;
 }
 
 .contato-sucesso {
@@ -103,11 +146,34 @@
 }
 
 .contato-sucesso h2 {
-  color: #004a99;
-  margin-bottom: 12px;
+  margin: 0 0 12px;
+  color: var(--primary-dark);
+  font-size: 1.6rem;
+  line-height: 1.2;
 }
 
 .contato-sucesso p {
-  margin-bottom: 20px;
-  color: #334155;
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .app {
+    width: min(100% - 20px, 1180px);
+    padding-top: 22px;
+  }
+
+  .app header img {
+    width: 104px;
+    height: 104px;
+  }
+
+  .grade {
+    grid-template-columns: 1fr;
+  }
+
+  .form-contato,
+  .contato-sucesso {
+    padding: 20px;
+  }
 }

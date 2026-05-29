@@ -1,50 +1,78 @@
 .cartao {
-    background: white;
-    border-radius: 12px;
-    padding: 32px;
-    max-width: 320px;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    font-family: sans-serif;
-  }
-  
-  .cartao-foto {
-    border-radius: 50%;
-    margin-bottom: 16px;
-  }
-  
-  .cartao-nome {
-    font-size: 1.4rem;
-    color: #004a99;
-    margin: 0 0 4px;
-  }
-  
-  .cartao-cargo {
-    color: #636e72;
-    font-size: 0.9rem;
-    margin: 0 0 12px;
-  }
-  
-  .cartao-bio {
-    color: #2d3436;
-    font-size: 0.875rem;
-    line-height: 1.6;
-  }
+  position: relative;
+  min-height: 100%;
+  padding: 28px;
+  border: 1px solid rgba(216, 226, 234, 0.95);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 251, 252, 0.94)),
+    var(--surface);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  overflow: hidden;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.cartao::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.cartao:hover {
+  border-color: rgba(15, 107, 110, 0.35);
+  box-shadow: var(--shadow);
+  transform: translateY(-4px);
+}
 
 .cartao-foto {
-  width: 96px;
-  height: 96px;
+  width: 102px;
+  height: 102px;
+  margin: 0 auto 16px;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  background: var(--surface-soft);
   object-fit: cover;
+  box-shadow: 0 10px 24px rgba(21, 38, 55, 0.16);
+}
+
+.cartao-nome {
+  margin: 0 0 5px;
+  color: var(--text);
+  font-size: 1.28rem;
+  font-weight: 850;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.cartao-cargo {
+  margin: 0 0 14px;
+  color: var(--primary-dark);
+  font-size: 0.92rem;
+  font-weight: 750;
+}
+
+.cartao-bio {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.cartao-bio + .cartao-bio {
+  margin-top: 4px;
 }
 
 .cartao-habilidades-section {
   margin-top: 22px;
   padding: 16px;
-  border: 1px solid #dfeaf7;
-  border-radius: 14px;
-  background: linear-gradient(180deg, #f8fbff 0%, #eef6ff 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #f8fbfc;
   text-align: left;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .cartao-habilidades-topo {
@@ -56,11 +84,11 @@
 }
 
 .cartao-habilidades-titulo {
-  color: #17324d;
-  font-size: 0.86rem;
-  font-weight: 800;
-  letter-spacing: 0;
   margin: 0;
+  color: #26384d;
+  font-size: 0.82rem;
+  font-weight: 850;
+  letter-spacing: 0;
 }
 
 .cartao-habilidades-total {
@@ -70,10 +98,10 @@
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: #17324d;
-  color: #fff;
+  background: rgba(15, 107, 110, 0.1);
+  color: var(--primary-dark);
   font-size: 0.68rem;
-  font-weight: 800;
+  font-weight: 850;
   line-height: 1;
   white-space: nowrap;
 }
@@ -81,40 +109,30 @@
 .cartao-habilidades {
   display: flex;
   flex-wrap: wrap;
-  gap: 9px;
-  justify-content: flex-start;
-  align-items: flex-start;
+  gap: 8px;
 }
 
 .cartao-habilidade {
+  max-width: 100%;
+  padding: 8px 10px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  max-width: 100%;
-  padding: 9px 12px;
-  border: 1px solid #c9dff3;
-  border-radius: 10px;
+  gap: 7px;
+  border: 1px solid rgba(15, 107, 110, 0.16);
+  border-radius: var(--radius);
   background: #ffffff;
-  color: #25364a;
-  font-size: 0.78rem;
-  font-weight: 700;
+  color: #344054;
+  font-size: 0.76rem;
+  font-weight: 750;
   line-height: 1.25;
   overflow-wrap: anywhere;
-  box-shadow: 0 8px 18px rgba(23, 50, 77, 0.08);
-  transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
 }
 
 .cartao-habilidade-marcador {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   flex: 0 0 auto;
   border-radius: 50%;
-  background: #16a3a6;
-  box-shadow: 0 0 0 3px rgba(22, 163, 166, 0.16);
-}
-
-.cartao-habilidade:hover {
-  border-color: #7fb8e8;
-  box-shadow: 0 10px 24px rgba(23, 50, 77, 0.12);
-  transform: translateY(-2px);
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(200, 95, 52, 0.14);
 }

@@ -1,6 +1,6 @@
 import './Cartaoperfil.css'
 
-function CartaoPerfil({ imagem, nome, cargo, bio, habilidades = [] }) {
+function CartaoPerfil({ imagem, nome, cargo, email, telefone, habilidades = [] }) {
   return (
     <div className="cartao">
       <img
@@ -10,7 +10,8 @@ function CartaoPerfil({ imagem, nome, cargo, bio, habilidades = [] }) {
       />
       <h2 className='cartao-nome'>{nome}</h2>
       <p className='cartao-cargo'>{cargo}</p>
-      <p className='cartao-bio'>{bio}</p>
+      <p className='cartao-bio'>{email}</p>
+      <p className='cartao-bio'>{telefone}</p>
       <div className='cartao-habilidades-section' aria-label={`Habilidades de ${nome}`}>
         <div className='cartao-habilidades-topo'>
           <h3 className='cartao-habilidades-titulo'>Habilidades</h3>
